@@ -61,7 +61,7 @@
             <div class="mdl-layout-spacer"></div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right fixbottomlading">
-                <a href="" class="mdl-button mdl-js-button mdl-button--icon">
+                <a href="{{url('/carrito')}}" class="mdl-button mdl-js-button mdl-button--icon">
 
                     <i class="material-icons mdl-badge mdl-badge--overlap" data-badge="{{$shopping_cart->productsSize()}}">shopping_cart</i>
 
