@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\ShoppingCart;
 
+use App\Paypal;
+
 class ShoppingCartsController extends Controller
 {
     public function index(){
@@ -15,10 +17,17 @@ class ShoppingCartsController extends Controller
 
         $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
 
-        $products = $shopping_cart->products()->get();
+        $paypal = new Paypal($shopping_cart);
 
-        $total = $shopping_cart->total();
+        $payment = $paypal->generate();
 
-        return view("shopping_carts.index", ["products" => $products,"total"=>$total]); 
+        return redirect($payment->getApprovalLink());
+
+
+        // $products = $shopping_cart->products()->get();
+
+       // $total = $shopping_cart->total();
+
+       // return view("shopping_carts.index", ["products" => $products,"total"=>$total]); 
     }
 }
