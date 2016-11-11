@@ -8,6 +8,23 @@ class ShoppingCart extends Model
 {
     protected $fillable = ["status"];
 
+    public function approve(){
+
+        $this->updateCustionIDAndStatus();
+
+    }
+
+    public function generateCustomID(){
+
+        return md5("$this->id $this->updated_at");
+
+    }
+
+    public function updateCustionIDAndStatus(){
+        $this->status = "Appoved";
+        $this->customid = $this->generateCustomID();  
+        $this->save();
+    }
     
     public function inShoppingCarts(){
         return $this->hasMany('App\InShoppingCart');

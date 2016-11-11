@@ -40,7 +40,7 @@ class PayPal
 
 	public function redirectURLs(){
 		// returns setRedirectUrls's info
-		$baseURL = url('url');
+		$baseURL = url('/');
 		return \PaypalPayment::redirectURLs()
 							->setReturnUrl("$baseURL/payments/store")
 							->setCancelUrl("$baseURL/carrito");
@@ -79,6 +79,14 @@ class PayPal
 							->setTotal($this->shopping_cart->total());
 	}
 
+	public function execute($paymentId,$payerId){
+		$payment = \PaypalPayment::getById($paymentId,$this->_apiContext);
+
+		$execution = \PaypalPayment::PaymentExecution()
+							->setPayerId($payerId);
+
+		return $payment->execute($execution,$this->_apiContext);
+	}
 
 
 }
