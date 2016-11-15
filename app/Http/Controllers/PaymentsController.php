@@ -15,6 +15,7 @@ class PaymentsController extends Controller
         $response = $paypal->execute($request->paymentId,$request->PayerID);
         
         if($response->state == "approved"){
+            \Session::remove("shopping_cart_id");
         	$order = Order::createFromPayPalResponse($response,$shopping_cart);
         	$shopping_cart->approve();
         }

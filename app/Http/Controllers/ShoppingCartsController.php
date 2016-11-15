@@ -12,6 +12,16 @@ use App\Paypal;
 
 class ShoppingCartsController extends Controller
 {
+    public function show($id){
+        $shopping_cart = ShoppingCart::where('customid',$id)->first();
+
+        $order = $shopping_cart->order();
+
+        return view("shopping_carts.completed",["shopping_cart" => $shopping_cart, "order" => $order]);
+ 
+
+    }
+
     public function index(){
     	$shopping_cart_id = \Session::get('shopping_cart_id');
 

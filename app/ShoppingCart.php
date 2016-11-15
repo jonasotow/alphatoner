@@ -32,6 +32,11 @@ class ShoppingCart extends Model
     public function products(){
         return $this->belongsToMany('App\Product','in_shopping_carts');
     }
+
+    public function order(){
+       return $this->hasOne("App\order")->first(); 
+    }
+
     public function productsSize(){
         return $this->products()->count();
     }  
