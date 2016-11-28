@@ -17,12 +17,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     <!-- Styles --> 
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{{ asset('/css/material-fullpalette.min.css') }}" rel="stylesheet" >
     <link href="{{ asset('/css/ripples.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/material.css') }}" rel="stylesheet"> 
     <link href="{{ asset('/css/base.css') }}" rel="stylesheet"> 
-    <link href="{{ asset('/css/pace.css') }}" rel="stylesheet"> 
+    <link href="{{ asset('/css/pace.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/bootstrap-editable.css') }}" rel="stylesheet">
+
 
     <!-- Metas -->
     <title>Alpha Toner - Toner Genérico -- Envio a toda la republica Méxicana</title>
@@ -78,20 +80,20 @@
                 @if (Auth::guest())
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="apt-menu-lower-right">
                         <li class="mdl-menu__item"><a href="{{ url('/login') }}">Mi cuenta</a></li>
-                        <li class="mdl-menu__item"><a href="{{ url('/register') }}">Registrate</a></li>
                     </ul>
                 @else
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="apt-menu-lower-right">
                         <li class="mdl-menu__item">                            
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ Auth::user()->name }} </a>
                         </li>
                         <hr>
                         <li class="mdl-menu__item">
-                        <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Cerrar Sesión </a>
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
                         </li>
+                         <li class="mdl-menu__item"><a href="{{ url('/register') }}">Nueva Cuenta</a></li>
 
                     </ul>
 
@@ -189,9 +191,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.min.js"></script>
     <script src="{{ asset('/js/pace.js') }}"></script>
     <script src="{{ asset('/js/material.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-editable.min.js') }}"></script>
     <script>
         $.material.init();
     </script>
+    <script src="{{ asset('/js/app.js') }}"></script>
+
 
 </body>
 

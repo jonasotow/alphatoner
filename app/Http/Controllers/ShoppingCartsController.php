@@ -7,25 +7,28 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\ShoppingCart;
-
 use App\Paypal;
+use App\Order;
+
 
 class ShoppingCartsController extends Controller
 {
+    public function __construct(){
+        $this->middleware("shoppingcart");
+    }
+
     public function show($id){
         $shopping_cart = ShoppingCart::where('customid',$id)->first();
 
         $order = $shopping_cart->order();
 
         return view("shopping_carts.completed",["shopping_cart" => $shopping_cart, "order" => $order]);
- 
 
     }
 
-    public function index(){
-    	$shopping_cart_id = \Session::get('shopping_cart_id');
+    public function index(Request $request){
 
-        $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
+        $shopping_cart = $request->shopping_cart;
 
         $paypal = new Paypal($shopping_cart);
 
@@ -33,11 +36,10 @@ class ShoppingCartsController extends Controller
 
         return redirect($payment->getApprovalLink());
 
+        $products = $shopping_cart->products()->get();
 
-        // $products = $shopping_cart->products()->get();
+        $total = $shopping_cart->total();
 
-       // $total = $shopping_cart->total();
-
-       // return view("shopping_carts.index", ["products" => $products,"total"=>$total]); 
+        return view("shopping_carts.index", ["products" => $products,"total"=>$total]); 
     }
 }

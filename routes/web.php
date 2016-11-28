@@ -30,3 +30,7 @@ Route::resource('compras','ShoppingCartsController',[
 ]);
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('orders','OrdersController',[
+	'only' => ['index', 'update']
+]);
