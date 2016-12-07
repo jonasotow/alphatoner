@@ -26,7 +26,7 @@ class ShoppingCartsController extends Controller
 
     }
 
-    public function index(Request $request){
+    public function checkout(Request $request){
 
         $shopping_cart = $request->shopping_cart;
 
@@ -35,6 +35,12 @@ class ShoppingCartsController extends Controller
         $payment = $paypal->generate();
 
         return redirect($payment->getApprovalLink());
+
+    }
+
+    public function index(Request $request){
+
+        $shopping_cart = $request->shopping_cart;
 
         $products = $shopping_cart->products()->get();
 

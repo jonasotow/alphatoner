@@ -295,6 +295,7 @@ class ComposerStaticInit083bd7a27ce68adf995d97c01197e47c
     );
 
     public static $classMap = array (
+        'AddColumnExtensionToProducts' => __DIR__ . '/../..' . '/database/migrations/2016_11_29_233238_add_column_extension_to_products.php',
         'AddCustomIDColumnToShoppingCarts' => __DIR__ . '/../..' . '/database/migrations/2016_11_11_201712_AddCustomIDColumnToShoppingCarts.php',
         'CreateInShoppingCartsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_06_222127_create_in_shopping_carts_table.php',
         'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_11_183742_create_orders_table.php',
