@@ -8,7 +8,7 @@
 	</div>
 
 	<div class="form-group">
-		{{ Form::file('cover') }}
+		{{ Form::file('cover',['class'=>'form-control']) }}
 	</div>
 
 	<div class="form-group">

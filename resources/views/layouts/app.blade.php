@@ -65,42 +65,14 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right fixbottomlading">
                 <a href="{{url('/carrito')}}" class="mdl-button mdl-js-button mdl-button--icon">
 
-                    <i class="material-icons mdl-badge mdl-badge--overlap" data-badge="{{$productsCount}}">shopping_cart</i>
+                    <i class="material-icons mdl-badge mdl-badge--overlap circle-shopping-cart" data-badge="{{$productsCount}}">shopping_cart</i>
 
                 </a>
                 <div class="mdl-textfield__expandable-holder">
                     <input class="mdl-textfield__input" type="text" name="sample" id="waterfall-exp">
                 </div>
             </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right myaccount fixbottomlading">
-                <label class="mdl-button mdl-js-button mdl-button--icon" id="apt-menu-lower-right" >
-                    <i class="material-icons">account_circle</i>
-                </label>
-                
-                @if (Auth::guest())
-                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="apt-menu-lower-right">
-                        <li class="mdl-menu__item"><a href="{{ url('/login') }}">Mi cuenta</a></li>
-                    </ul>
-                @else
-                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="apt-menu-lower-right">
-                        <li class="mdl-menu__item">                            
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->name }} </a>
-                        </li>
-                        <hr>
-                        <li class="mdl-menu__item">
-                            <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Cerrar Sesión </a>
-                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
-                        </li>
-                         <li class="mdl-menu__item"><a href="{{ url('/register') }}">Nueva Cuenta</a></li>
 
-                    </ul>
-
-                
-                @endif
-
-            </div>
         </div>
     </header>
 
@@ -110,13 +82,21 @@
                 <img class="apt-logo-image" src="{{ asset('/img/alphatoner/logo_web.jpg') }}">
             </a>
         </span>
+
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="">Toner</a>
             <a class="mdl-navigation__link" href="">Cartuchos de Toner</a>
             <a class="mdl-navigation__link" href="">Accesorios</a>
             <a class="mdl-navigation__link" href="">Impresoras</a>
-        </nav>
+   
+            @if (Auth::user())
+                                      
+                <a class="logout mdl-navigation__link" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión </a>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
+                
+            @endif
 
+        </nav>
 
     </div>
     <main class="mdl-layout__content">
@@ -134,9 +114,17 @@
                     <div class="mdl-mega-footer__drop-down-section">
                         <h1 class="mdl-mega-footer__heading">Alpha Toner</h1>
                         <ul class="mdl-mega-footer__link-list">
-                            <li><a href="#">Quienes Somos</a></li>
+                        @if (Auth::guest())
+                        <li><a href="{{ url('/login') }}">Mi cuenta</a></li>
+                        @else
+                        <li><a href="{{ url('/admin') }}"">Mi cuenta</a></li>
+                        @endif
+
+                            <li><a href="#"></a></li>
                             <li><a href="#">Misión</a></li>
                             <li><a href="#">Visión</a></li>
+                            <li><a href="#">Quienes Somos</a></li>
+
                         </ul>
                     </div>
 

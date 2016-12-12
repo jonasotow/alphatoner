@@ -26,7 +26,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::latest()->simplePaginate(5);
         return view("products.index", ["products" => $products]);
 
     }

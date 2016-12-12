@@ -5,7 +5,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Registro de cuenta en Alpha Toner</div>
+                <div class="big-padding text-center blue-grey white-text">
+                    <h1>Alta de Nuevo Usuario</h1>
+                </div>                 
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}

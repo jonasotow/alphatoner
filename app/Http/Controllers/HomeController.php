@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        
+        $orders = Order::latest()->get();
+
+        $totalMonth = Order::totalMonth();
+
+        $totalMonthCount = Order::totalMonthCount();
+
+        return view('home',['orders' => $orders, 'totalMonth' => $totalMonth, 'totalMonthCount' => $totalMonthCount]);
+        
     }
 }

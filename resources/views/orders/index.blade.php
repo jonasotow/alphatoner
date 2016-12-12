@@ -4,27 +4,12 @@
 
 	<div class="container">
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h2>Dashboard</h2>
-			</div>			
-		
+            <div class="big-padding text-center blue-grey white-text">
+                <h1>Ordenes</h1>
+            </div>     		
+            @include("layouts.nav_admin")
+			
 			<div class="panel-body">
-
-				<h3>Estadistica</h3>
-
-				<div class="row top-space">
-					
-					<div class="col-xs-4 col-md-3 col-lg-2 sale-data">
-						<span>{{$totalMonth}}MXN</span>
-					Ingresos del mes
-					</div>
-
-					<div class="col-xs-4 col-md-3 col-lg-2 sale-data">
-						<span>{{$totalMonthCount}}</span>
-					Número de ventas
-					</div>
-
-				</div>
 
 				<h3>Ventas</h3>
 

@@ -9,15 +9,11 @@ class ShoppingCart extends Model
     protected $fillable = ["status"];
 
     public function approve(){
-
         $this->updateCustionIDAndStatus();
-
     }
 
     public function generateCustomID(){
-
         return md5("$this->id $this->updated_at");
-
     }
 
     public function updateCustionIDAndStatus(){
@@ -42,9 +38,9 @@ class ShoppingCart extends Model
     }  
 
     public function total(){
-        return $this->products()->sum("pricing");
+        return $this->products()->sum('pricing');
+        
     }
-
 
 	public static function findOrCreateBySessionID($shopping_cart_id){
         if($shopping_cart_id)

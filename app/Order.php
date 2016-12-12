@@ -62,7 +62,7 @@ class Order extends Model
 		return Order::monthly()->sum("total");
 	}
 
-	public static function totalMonthCount (){
+	public static function totalMonthCount(){
 		return Order::monthly()->count() ;
 	}
 
