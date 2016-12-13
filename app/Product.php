@@ -6,9 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-	public function scopeLatest($query){
-		return $query->orderBy("id","desc");
+	public function scopeTotal($query){
+        $consulta = $query->orderBy("id","desc");
+        return $consulta;
 	}
+
+    public function scopeLatest($query){
+        $consulta = $query->where('activo', '=', 'SI');
+        $consulta = $consulta->orderBy("id","desc");
+        return $consulta;
+    }
+
     public function paypalItem(){
     	return \PaypalPayment::item()->setName($this->title)
     								->setDescription($this->description)

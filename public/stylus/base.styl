@@ -82,6 +82,35 @@ nav
 				a
 					.material-icons
 						font-size 14px
+			.price
+				&:before
+					content "$ "
+.form-horizontal
+	.checkbox
+		padding-top 0px
+
+.btn-color-green
+	background #607d8b
+	color #fff
+
+.form-group 
+	input[type=file]
+		opacity 0
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		left 0
+		width 100%
+		height 100%
+		z-index 100
+
+.control-label-material
+	font-size 16px
+	line-height 1.42857143
+	color #BDBDBD
+	font-weight 400
+    
 .blue-grey
 	background-color #607d8b
 
@@ -129,8 +158,9 @@ nav
 .table 
 	background-color white
 
-a:hover
-	text-decoration none
+a
+	&:hover
+		text-decoration none
 
 .fixbottomlading
 	position static
@@ -170,6 +200,8 @@ a:hover
 	.actions
 		right 1em
 		top 10px
+		.material-icons
+			font-size 14px
 		
 .sale-data
 	padding 1em
@@ -259,3 +291,4 @@ section
 	h1
 		font-size 42px
 		font-weight bold
+		

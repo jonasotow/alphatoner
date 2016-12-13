@@ -23,8 +23,8 @@
 				<thead>
 					<tr>
 						<th>Titulo</th>
-						<th>Descripción</th>
 						<th>Precio</th>
+						<th>Activo</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -32,16 +32,12 @@
 					@foreach ($products as $product)
 					<tr>
 						<td>{{ $product->title }}</td>
-						<td>{{ $product->description }}</td>
-						<td>{{ $product->pricing }}</td>
+						<td class="price">{{ $product->pricing }}</td>
+						<td>{{ $product->activo }}</td>
 						<td> 
 								<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="{{url('/products/'.$product->id)}}"><i class="material-icons">open_in_new</i> Ver</a>
 								
 								<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="{{url('/products/'.$product->id.'/edit')}}"><i class="material-icons">mode_edit</i> Editar</a>
-
-								@include('products.delete',['product' => $product])
-							
-
 						 </td>
 					</tr>
 					@endforeach

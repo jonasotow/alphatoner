@@ -3,9 +3,8 @@
 		@if(Auth::check() && $product->user_id == Auth::user()->id)
 
 			<div class="absolute actions">
-				<a href="{{url('/products/'.$product->id.'/edit')}}">Editar</a>
+				<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="{{url('/products/'.$product->id.'/edit')}}"><i class="material-icons">mode_edit</i> Editar</a>
 
-				@include('products.delete',['product' => $product])
 			</div>
 
 		@endif

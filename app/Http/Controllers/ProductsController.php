@@ -26,7 +26,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->simplePaginate(5);
+        $products = Product::total()->simplePaginate(5);
         return view("products.index", ["products" => $products]);
 
     }
@@ -58,6 +58,14 @@ class ProductsController extends Controller
         $product->pricing = $request->pricing;
         $product->description = $request->description;
         $product->user_id = Auth::user()->id;
+
+        $status = $request->activo;
+
+        if ($status === '1') {
+            $product->activo = 'SI';
+        } else {
+            $product->activo = 'NO';
+        }
 
         if($hasFile){
             $extension = $request->cover->extension();
@@ -116,6 +124,17 @@ class ProductsController extends Controller
         $product->title = $request->title;
         $product->pricing = $request->pricing;
         $product->description = $request->description;
+
+        $status = $request->activo;
+
+        if ($status === '1') {
+            $product->activo = 'SI';
+        } else {
+            $product->activo = 'NO';
+        }
+
+        //    $extension = $request->cover->extension();
+        //    $product->extension = $extension;
 
         if($product->save()){
             return redirect("/products");
