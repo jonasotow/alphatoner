@@ -20,14 +20,18 @@ nav
 .nav-tabs
 	background-color #424242
 
+.btn-search-t
+	padding 10px 15px
+
 .icons-nav
 	margin 0.2em
 .container
 	margin-bottom 1em
 .products-container
+	font-size 14px
 	.product
 	.product-card 
-		margin-top 1em;
+		margin-top 0.5em;
 
 .product-avatar
 	max-width 100%
@@ -119,7 +123,6 @@ nav
     background-image linear-gradient(#f92473,#f9156a 90%,#f91067)    
 .cards	
 	float left
-	max-width 70%
 	.product-card
 		width 100%
 
@@ -129,16 +132,13 @@ nav
 	font-weight 700
 
 .pay-cart
-	margin-top 1em
-	width 25%
-	float right
+	margin-top 0.5em
 	position inline-block
-	z-index 100
 	background #fff
 	box-shadow 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
 	
 .total-pay
-	padding 1em 1em 0.5em 1em
+	padding 0.5em 1em 0.5em 1em
 	font-weight 700
 	font-size 17px
 	span
@@ -177,31 +177,39 @@ a
 	position absolute
 .product-card 
 	padding 1em
+	font-size 14px
 	.name 
-		font-size 17px
 		font-weight 700
 	.price 
-		font-size 17px
 		color #b12704!important
 		font-weight 700
 
 	.more
 		color #0066c0
 		font-size 12px
-		
+
 .product
-	width 600px
-	max-width 100%
 	padding 1em
 	position relative
-	h1
+	font-size 14px
+	
+	a
+		font-size 17px
 		padding-bottom 10px
-		border-bottom solid 1px
+		margin 0px
+		color #0066c0
+		text-decoration none
+
 	.actions
 		right 1em
 		top 10px
 		.material-icons
 			font-size 14px
+	.row 
+		margin-top 1em
+	.price
+		color color-red
+		font-weight 700
 		
 .sale-data
 	padding 1em
@@ -292,3 +300,4 @@ section
 		font-size 42px
 		font-weight bold
 		
+

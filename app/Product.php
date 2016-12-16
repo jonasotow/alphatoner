@@ -24,4 +24,8 @@ class Product extends Model
     								->setQuantity("1")
     								->setPrice($this->pricing);
     }
+
+    public function scopeSearch($query, $title){
+        return $query->where('title', 'LIKE', "%$title%");
+    }
 }

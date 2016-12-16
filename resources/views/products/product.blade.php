@@ -8,30 +8,29 @@
 			</div>
 
 		@endif
-
-			<h1>{{$product->title}}</h1>
-			<div class="row">
-				<div class="col-sm-6 col-xs-12">
+			<div class="item">
+				<div class="col-sm-3 col-xs-12">
 					
 					@if($product->extension)
-						<img src="{{url("/products/images/$product->id.$product->extension")}}" class="product-avatar">
+						<a href="{{url('/products/'.$product->id)}}" >	
+							<img src="{{url("/products/images/$product->id.$product->extension")}}" class="product-avatar">
+						</a>
 					@endif
 
 				</div>
-				<div class="col-sm-6 col-xs-12">
-					<p>
-						<strong>Descripción</strong>
-					</p>
-					<p>
-						{{$product->description}}
-					</p>
-					<p>
-						<strong>Precio:</strong><span> ${{$product->pricing}}</span>
-					</p>
+				<div class="col-sm-9 col-xs-12">
+
+					<a href="{{url('/products/'.$product->id)}}">{{$product->title}}</a>
+
+					<div>
+						{{$product->description}} 
+					</div>
+					<hr>
+					<div>
+						<strong>Precio: </strong> <span class="price">$ {{$product->pricing}}</span>
+					</div>
 				
-					<p>
 						@include("in_shopping_carts.form",["product" => $product])
-					</p>
 				</div>
 			</div>
 		</div>

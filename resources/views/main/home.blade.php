@@ -5,17 +5,15 @@
 @section('content')
 
 	<div class="text-center products-container">
-		<div class="row">
 			
-			@foreach($products as $product)
+		@foreach($products as $product)
 
-			<div class="col-xs-10 col-sm-6">
+			<div class="col-md-12">
 				@include("products.product",["product" => $product])
 			</div>
 			
-			@endforeach
+		@endforeach
 	
-		</div>
 		<div>
 			{{$products->links()}}
 		</div>
