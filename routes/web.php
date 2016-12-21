@@ -22,6 +22,7 @@ Route::get('/payments/store', 'PaymentsController@store');
 Auth::routes();
 
 Route::resource('products','ProductsController');
+Route::resource('search','SearchProductsController');
 
 Route::resource('in_shopping_carts','InShoppingCartsController',[
 	'only' => ['store', 'destroy']

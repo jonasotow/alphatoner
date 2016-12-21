@@ -2,9 +2,8 @@
 
 @section("content")
 
-	<div class="container">
 		<div class="panel panel-default">
-            <div class="big-padding text-center blue-grey white-text">
+            <div class="big-padding title">
                 <h1>Ordenes</h1>
             </div>     		
             @include("layouts.nav_admin")
@@ -65,6 +64,5 @@
 
 			</div>
 		</div>
-	</div
 
 @endsection

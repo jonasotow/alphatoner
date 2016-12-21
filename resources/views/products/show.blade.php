@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+	
+	@include("layouts.search-products")
 
-	<div class="container text-center">
+	<div class="text-center products-container">
 		@include("products.product",["product" => $product])
 	</div>
 

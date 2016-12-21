@@ -1,9 +1,9 @@
 @extends("layouts.app")
 @section("content")
-	<div class="big-padding text-center blue-grey white-text">
+	<div class="big-padding title">
 		<h1>Tu carrito de compras</h1>
 	</div>
-	<div class="container products-container">
+	<div class="products-container">
 
 		<div class="text-center"> <a class="more-products" href="{{url("/")}}">Agregar más productos</a> </div>
 		

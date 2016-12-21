@@ -1,4 +1,4 @@
-{!! Form::open(['url' => $url, 'method' => $method, 'files' => true ]) !!}
+{!! Form::open(['url' => $url, 'method' => $method, 'files' => true, 'class' => 'form-product' ]) !!}
 
 <div class="form-horizontal col-md-7">
 	<div class="form-group">
@@ -55,7 +55,5 @@
 	</div>
 	
 </div>
-
-
 
 {!! Form::close() !!}

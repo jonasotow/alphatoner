@@ -17,12 +17,63 @@ nav
 	ul 
 		li 
 			text-transform uppercase
+.a-footer 
+	position relative
 .nav-tabs
 	background-color #424242
+	border-radius 2px
 
+.title 
+	text-align center
+	background #424242
+	color #fff
 .btn-search-t
 	padding 10px 15px
 
+.shoppingcart
+	position absolute
+	right 23px
+	top 40px
+	width 50px
+	
+.form-product
+	padding 20px
+.nav-searchbar
+	width 100%
+	.nav
+		li
+		.nav-search-field
+			height auto
+			.navbar-form 
+				padding 0px
+				margin 0px
+				.search-products
+					margin 10px 0px
+					.search-input
+						border-radius 4px 0px 0px 4px
+						border 0
+						background #fff
+						overflow hidden 
+						height 35px
+						display flex
+						align-items center
+						
+						input
+							border 0
+							padding-left 10px
+							width 100%
+
+					.search-btn
+						border-radius 0px 4px 4px 0px
+						background-color #febd69
+						height 35px
+						display flex
+						align-items center
+						
+						.material-icons
+							border 0
+							background none
+							
 .icons-nav
 	margin 0.2em
 .container
@@ -116,7 +167,7 @@ nav
 	font-weight 400
     
 .blue-grey
-	background-color #607d8b
+	background-color #febd69
 
 .btn-new-product
 	background-image -webkit-linear-gradient(#f92473,#f9156a 90%,#f91067)
@@ -178,6 +229,7 @@ a
 .product-card 
 	padding 1em
 	font-size 14px
+	
 	.name 
 		font-weight 700
 	.price 
@@ -192,6 +244,7 @@ a
 	padding 1em
 	position relative
 	font-size 14px
+	width 90%
 	
 	a
 		font-size 17px
@@ -238,7 +291,44 @@ a
 .apt-logo-image
 	width 100px
 
+//Menu 
+.mdl-grid
+	padding 0px 8px 8px 0px
+.container-alphatoner
+	float none
+	width 100%
+.menu-alphatoner
+	background color-menu
+	padding 0px
+	width 240px
+	float left
+	visibility hidden
+	position absolute
+	box-shadow: 0 8px 17px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+	border-radius 2px
+
+	.alphatoner-navigation
+		padding-top 10px
+		.alphatoner-navigation__link
+			color #fff
+			padding 16px 25px
+			display block
+			text-decoration none
+			opacity .87
+			&:hover
+				background #e0e0e0
+				color #607d8b
+@media (min-width: 768px) 
+	.container-alphatoner
+		float right
+		width calc(100% - 240px)
+
+	.menu-alphatoner
+		visibility visible
+		position relative
+
 //Material Design Customize 
+
 
 	.mdl-layout__header
 		    background color-menu_p

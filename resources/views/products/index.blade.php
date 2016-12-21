@@ -3,9 +3,8 @@
 @section('title', 'Productos')
 
 @section('content')
-	<div class="container">
 		<div class="panel panel-default">
-            <div class="big-padding text-center blue-grey white-text">
+            <div class="big-padding title">
                 <h1>Productos</h1>
             </div> 
 
@@ -59,6 +58,5 @@
 				{{$products->links()}}
 			</div>
 		</div>
-	</div>
 
 @endsection

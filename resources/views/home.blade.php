@@ -2,9 +2,8 @@
 
 @section("content")
 
-    <div class="container">
         <div class="panel panel-default">
-            <div class="big-padding text-center blue-grey white-text">
+            <div class="big-padding title">
                 <h1>Panel de Control</h1>
             </div>        
             @include("layouts.nav_admin")
@@ -25,12 +24,9 @@
                         <span>{{$totalMonthCount}}</span>
                     Número de ventas
                     </div>
-
-
                 </div>                
 
             </div>
         </div>
-    </div
 
 @endsection

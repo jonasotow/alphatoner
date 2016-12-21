@@ -55,55 +55,47 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
+
             <span class="mdl-layout-title">
                 <a href="{{ url('/') }}">
                     <img class="apt-logo-image" src="{{ asset('/img/alphatoner/logo_web.jpg') }}">
                 </a>
             </span>
-            <div class="mdl-layout-spacer"></div>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right fixbottomlading">
+            <div class="mdl-textfield shoppingcart">
                 <a href="{{url('/carrito')}}" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons mdl-badge mdl-badge--overlap circle-shopping-cart" data-badge="{{$productsCount}}">shopping_cart</i>
                 </a>
-                <div class="mdl-textfield__expandable-holder">
-                </div>
             </div>
 
         </div>
     </header>
 
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">
-            <a href="{{ url('/') }}"> 
-                <img class="apt-logo-image" src="{{ asset('/img/alphatoner/logo_web.jpg') }}">
-            </a>
-        </span>
-
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Toner</a>
-            <a class="mdl-navigation__link" href="">Cartuchos de Toner</a>
-            <a class="mdl-navigation__link" href="">Accesorios</a>
-            <a class="mdl-navigation__link" href="">Impresoras</a>
-   
-            @if (Auth::user())
-                                      
-                <a class="logout mdl-navigation__link" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión </a>
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
-                
-            @endif
-
-        </nav>
-
-    </div>
     <main class="mdl-layout__content">
         <div class="page-content">
 
-            <section>
+            <div class="mdl-grid">
 
-            @yield('content')
+                <div class="menu-alphatoner">
+                    <nav class="alphatoner-navigation">
+                        <a class="alphatoner-navigation__link" href="">Toner</a>
+                        <a class="alphatoner-navigation__link" href="">Cartuchos de Toner</a>
+                        <a class="alphatoner-navigation__link" href="">Accesorios</a>
+                        <a class="alphatoner-navigation__link" href="">Impresoras</a>
+               
+                        @if (Auth::user())
+                                                  
+                            <a class="logout mdl-navigation__link" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión </a>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
+                        @endif
+                    </nav>
+                </div>
 
-            </section>
+                <div class="container-alphatoner">
+                    @yield('content')
+                </div>
+
+            </div>
             
             <footer class="mdl-mega-footer">
                 <div class="mdl-mega-footer__middle-section">

@@ -4,6 +4,8 @@
 
 @section('content')
 
+	@include("layouts.search-products")
+
 	<div class="text-center products-container">
 			
 		@foreach($products as $product)
@@ -14,9 +16,8 @@
 			
 		@endforeach
 	
-		<div>
-			{{$products->links()}}
-		</div>
+		{{$products->links()}}
+
 	</div>
 
 
